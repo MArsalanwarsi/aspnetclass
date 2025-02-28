@@ -43,7 +43,7 @@ public class HomeController : Controller
         var user1 = context.Users.FirstOrDefault(x=>x.Email==user.Email && x.Password==user.Password);
         if (user1 != null)
             {
-            HttpContext.Session.SetString("Email", user1.Email);
+            HttpContext.Session.SetString("Email", value: user1.Email);
             if (user1.Role == "admin")
                 {
                 return RedirectToAction("Index", "Admin");
