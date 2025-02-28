@@ -59,6 +59,12 @@ public class HomeController : Controller
             return RedirectToAction("Login");
             }
         }
+
+    public IActionResult Logout()
+        {
+        HttpContext.Session.Remove("Email");
+        return RedirectToAction("Login");
+        }
     [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
     public IActionResult Error()
     {

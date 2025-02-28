@@ -1,4 +1,6 @@
-﻿<!doctype html>
+﻿
+
+<!doctype html>
 <html class="no-js" lang="zxx">
 <head>
     <meta charset="utf-8">
@@ -183,7 +185,14 @@
                                     <button class="tp-search-toggle"><i class="icon-search"></i></button>
                                 </div>
                                 <div class="header__info-user tpcolor__yellow ml-10">
-                                    <a asp-action="Login" asp-controller="Home"><i class="icon-user"></i></a>
+                                    @if (Context.Session.GetString("Email") != null)
+                                        {
+                                        <a asp-action="Logout" asp-controller="Home"><i class="icon-user">Logout</i></a>
+                                        }
+                                    else
+                                        {
+                                        <a asp-action="Login" asp-controller="Home"><i class="icon-user"></i></a>
+                                        }
                                 </div>
                                 <div class="header__info-wishlist tpcolor__greenish ml-10">
                                     <a href="wishlist.html"><i class="icon-heart icons"></i></a>
